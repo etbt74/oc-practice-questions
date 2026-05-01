@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progress Dashboard | OC Exam Practice</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f1f5f9; color: #1e293b; min-height: 100vh; }
+
+    header {
+      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+      color: #fff; padding: 22px 32px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 700; }
+    header .subtitle { font-size: .9rem; opacity: .85; }
+
+    .refresh-btn {
+      background: rgba(255,255,255,.2); color: #fff; border: 1.5px solid rgba(255,255,255,.5);
+      border-radius: 6px; padding: 8px 16px; font-size: .88rem; cursor: pointer; font-weight: 600;
+      transition: background .2s;
+    }
+    .refresh-btn:hover { background: rgba(255,255,255,.35); }
+
+    .container { max-width: 1100px; margin: 32px auto; padding: 0 20px 60px; }
+
+    /* Summary cards */
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }
+    .summary-card {
+      background: #fff; border-radius: 10px; padding: 20px 22px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08); border-top: 4px solid #1e40af;
+    }
+    .summary-card.reading { border-top-color: #1e40af; }
+    .summary-card.thinking { border-top-color: #7c3aed; }
+    .summary-card.maths { border-top-color: #065f46; }
+    .summary-card.overall { border-top-color: #d97706; }
+
+    .summary-card .label { font-size: .82rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
+    .summary-card .value { font-size: 2rem; font-weight: 800; color: #1e293b; }
+    .summary-card .sub { font-size: .82rem; color: #94a3b8; margin-top: 4px; }
+
+    /* Chart section */
+    .section { background: #fff; border-radius: 10px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 24px; }
+    .section h2 { font-size: 1rem; font-weight: 700; color: #334155; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+
+    .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    @media (max-width: 680px) { .charts-grid { grid-template-columns: 1fr; } }
+
+    canvas { max-height: 280px; }
+
+    /* Improvement section */
+    .improvement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .improve-card {
+      border-radius: 8px; padding: 16px 18px; border-left: 4px solid;
+    }
+    .improve-card.needs-work { border-left-color: #dc2626; background: #fef2f2; }
+    .improve-card.on-track   { border-left-color: #d97706; background: #fffbeb; }
+    .improve-card.strong     { border-left-color: #16a34a; background: #f0fdf4; }
+
+    .improve-card .cat-name { font-weight: 700; font-size: .95rem; margin-bottom: 4px; }
+    .improve-card .cat-pct  { font-size: 1.6rem; font-weight: 800; }
+    .improve-card .cat-msg  { font-size: .82rem; margin-top: 4px; color: #475569; }
+
+    .progress-bar-wrap { background: #e2e8f0; border-radius: 99px; height: 8px; margin-top: 8px; overflow: hidden; }
+    .progress-bar { height: 100%; border-radius: 99px; transition: width .6s ease; }
+
+    /* Results table */
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th { text-align: left; padding: 10px 12px; background: #f8fafc; color: #64748b; font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; border-bottom: 2px solid #e2e8f0; }
+    td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; }
+    tr:hover td { background: #f8fafc; }
+
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .78rem; font-weight: 700; }
+    .badge-reading  { background: #dbeafe; color: #1e40af; }
+    .badge-thinking { background: #ede9fe; color: #6d28d9; }
+    .badge-maths    { background: #d1fae5; color: #065f46; }
+
+    .pct-pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .82rem; font-weight: 700; }
+    .pct-high   { background: #d1fae5; color: #065f46; }
+    .pct-mid    { background: #fef9c3; color: #92400e; }
+    .pct-low    { background: #fee2e2; color: #991b1b; }
+
+    .no-data { text-align: center; padding: 40px; color: #94a3b8; font-size: .95rem; }
+
+    .loading { text-align: center; padding: 60px; color: #94a3b8; font-size: 1rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>📊 OC Exam Practice — Progress Dashboard</h1>
+    <div class="subtitle">Track your performance across all three categories</div>
+  </div>
+  <button class="refresh-btn" onclick="loadData()">⟳ Refresh</button>
+</header>
+
+<div class="container">
+
+  <!-- Summary Cards -->
+  <div class="summary-grid">
+    <div class="summary-card overall">
+      <div class="label">Overall Average</div>
+      <div class="value" id="s-overall">—</div>
+      <div class="sub" id="s-attempts">0 attempts</div>
+    </div>
+    <div class="summary-card reading">
+      <div class="label">📖 Reading</div>
+      <div class="value" id="s-reading">—</div>
+      <div class="sub" id="s-reading-n">0 attempts</div>
+    </div>
+    <div class="summary-card thinking">
+      <div class="label">🧠 Thinking</div>
+      <div class="value" id="s-thinking">—</div>
+      <div class="sub" id="s-thinking-n">0 attempts</div>
+    </div>
+    <div class="summary-card maths">
+      <div class="label">🔢 Mathematics</div>
+      <div class="value" id="s-maths">—</div>
+      <div class="sub" id="s-maths-n">0 attempts</div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts-grid">
+    <div class="section">
+      <h2>📈 Score Trend Over Time</h2>
+      <canvas id="trend-chart"></canvas>
+    </div>
+    <div class="section">
+      <h2>📊 Average Score by Category</h2>
+      <canvas id="category-chart"></canvas>
+    </div>
+  </div>
+
+  <!-- Areas for Improvement -->
+  <div class="section">
+    <h2>🎯 Areas for Improvement</h2>
+    <div class="improvement-grid" id="improvement-grid">
+      <div class="no-data">No data yet — complete a question set to see your results here.</div>
+    </div>
+  </div>
+
+  <!-- Recent Results Table -->
+  <div class="section">
+    <h2>🗒️ Recent Results</h2>
+    <div id="table-wrap">
+      <div class="loading">Loading results…</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Raw results URL — reads directly from GitHub
+  const RESULTS_URL = 'https://raw.githubusercontent.com/etbt74/oc-practice-questions/main/results/results.json';
+
+  const CAT_COLORS = {
+    'Reading Comprehension': { border: '#1e40af', bg: 'rgba(30,64,175,.15)' },
+    'Critical Thinking':     { border: '#7c3aed', bg: 'rgba(124,58,237,.15)' },
+    'Mathematics':           { border: '#065f46', bg: 'rgba(6,95,70,.15)' }
+  };
+
+  let trendChart = null;
+  let catChart = null;
+
+  async function loadData() {
+    try {
+      const res = await fetch(RESULTS_URL + '?t=' + Date.now());
+      const results = await res.json();
+      render(results);
+    } catch (e) {
+      document.getElementById('table-wrap').innerHTML =
+        '<div class="no-data">⚠ Could not load results. Make sure the repository is public and results.json exists.</div>';
+    }
+  }
+
+  function avg(arr) { return arr.length ? Math.round(arr.reduce((a,b)=>a+b,0)/arr.length) : null; }
+
+  function render(results) {
+    if (!results || results.length === 0) {
+      document.getElementById('table-wrap').innerHTML = '<div class="no-data">No results yet — complete a question set and click Mark.</div>';
+      renderImprovements({});
+      return;
+    }
+
+    // Sort by date ascending
+    results.sort((a,b) => new Date(a.timestamp) - new Date(b.timestamp));
+
+    const cats = ['Reading Comprehension', 'Critical Thinking', 'Mathematics'];
+    const byCategory = {};
+    cats.forEach(c => { byCategory[c] = results.filter(r => r.category === c); });
+
+    // Summary cards
+    const allPct = results.map(r => r.percentage);
+    document.getElementById('s-overall').textContent = avg(allPct) !== null ? avg(allPct) + '%' : '—';
+    document.getElementById('s-attempts').textContent = results.length + ' attempt' + (results.length === 1 ? '' : 's');
+
+    const readPct = byCategory['Reading Comprehension'].map(r => r.percentage);
+    const thinkPct = byCategory['Critical Thinking'].map(r => r.percentage);
+    const mathPct  = byCategory['Mathematics'].map(r => r.percentage);
+
+    document.getElementById('s-reading').textContent  = avg(readPct)  !== null ? avg(readPct)  + '%' : '—';
+    document.getElementById('s-thinking').textContent = avg(thinkPct) !== null ? avg(thinkPct) + '%' : '—';
+    document.getElementById('s-maths').textContent    = avg(mathPct)  !== null ? avg(mathPct)  + '%' : '—';
+    document.getElementById('s-reading-n').textContent  = readPct.length  + ' attempt' + (readPct.length  === 1 ? '' : 's');
+    document.getElementById('s-thinking-n').textContent = thinkPct.length + ' attempt' + (thinkPct.length === 1 ? '' : 's');
+    document.getElementById('s-maths-n').textContent    = mathPct.length  + ' attempt' + (mathPct.length  === 1 ? '' : 's');
+
+    // Trend chart — all results by date
+    const labels = results.map(r => {
+      const d = new Date(r.timestamp);
+      return d.toLocaleDateString('en-AU', { day:'numeric', month:'short' });
+    });
+
+    const datasets = cats.map(cat => ({
+      label: cat.replace('Comprehension','Comp.'),
+      data: results.map(r => r.category === cat ? r.percentage : null),
+      borderColor: CAT_COLORS[cat].border,
+      backgroundColor: CAT_COLORS[cat].bg,
+      tension: 0.3,
+      spanGaps: true,
+      pointRadius: 5,
+      pointHoverRadius: 7
+    }));
+
+    if (trendChart) trendChart.destroy();
+    trendChart = new Chart(document.getElementById('trend-chart'), {
+      type: 'line',
+      data: { labels, datasets },
+      options: {
+        responsive: true, maintainAspectRatio: true,
+        scales: {
+          y: { min: 0, max: 100, ticks: { callback: v => v + '%' }, grid: { color: '#f1f5f9' } },
+          x: { grid: { display: false } }
+        },
+        plugins: { legend: { position: 'bottom' } }
+      }
+    });
+
+    // Category bar chart
+    if (catChart) catChart.destroy();
+    catChart = new Chart(document.getElementById('category-chart'), {
+      type: 'bar',
+      data: {
+        labels: ['Reading', 'Thinking', 'Mathematics'],
+        datasets: [{
+          label: 'Average Score (%)',
+          data: [avg(readPct), avg(thinkPct), avg(mathPct)],
+          backgroundColor: ['rgba(30,64,175,.7)', 'rgba(124,58,237,.7)', 'rgba(6,95,70,.7)'],
+          borderColor:      ['#1e40af', '#7c3aed', '#065f46'],
+          borderWidth: 2, borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: true,
+        scales: {
+          y: { min: 0, max: 100, ticks: { callback: v => v + '%' }, grid: { color: '#f1f5f9' } },
+          x: { grid: { display: false } }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    // Improvement cards
+    const catAvgs = {
+      'Reading Comprehension': avg(readPct),
+      'Critical Thinking': avg(thinkPct),
+      'Mathematics': avg(mathPct)
+    };
+    renderImprovements(catAvgs);
+
+    // Results table
+    const recent = [...results].reverse().slice(0, 20);
+    const rows = recent.map(r => {
+      const d = new Date(r.timestamp).toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'2-digit', hour:'2-digit', minute:'2-digit' });
+      const cat = r.category;
+      const badgeClass = cat === 'Reading Comprehension' ? 'badge-reading' : cat === 'Critical Thinking' ? 'badge-thinking' : 'badge-maths';
+      const pctClass = r.percentage >= 80 ? 'pct-high' : r.percentage >= 60 ? 'pct-mid' : 'pct-low';
+      return `<tr>
+        <td>${r.studentName || 'Student'}</td>
+        <td><span class="badge ${badgeClass}">${cat}</span></td>
+        <td>Week ${r.week}</td>
+        <td>${r.score} / ${r.totalQuestions}</td>
+        <td><span class="pct-pill ${pctClass}">${r.percentage}%</span></td>
+        <td style="color:#94a3b8; font-size:.83rem;">${d}</td>
+      </tr>`;
+    }).join('');
+
+    document.getElementById('table-wrap').innerHTML = `
+      <table>
+        <thead><tr><th>Student</th><th>Category</th><th>Week</th><th>Score</th><th>Percentage</th><th>Date</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }
+
+  function renderImprovements(catAvgs) {
+    const grid = document.getElementById('improvement-grid');
+    const cats = [
+      { key: 'Reading Comprehension', label: '📖 Reading Comprehension', icon: '📖' },
+      { key: 'Critical Thinking',     label: '🧠 Critical Thinking',     icon: '🧠' },
+      { key: 'Mathematics',           label: '🔢 Mathematics',           icon: '🔢' }
+    ];
+
+    const hasData = Object.values(catAvgs).some(v => v !== null);
+    if (!hasData) {
+      grid.innerHTML = '<div class="no-data">No data yet — complete a question set and click Mark.</div>';
+      return;
+    }
+
+    grid.innerHTML = cats.map(({ key, label }) => {
+      const pct = catAvgs[key];
+      if (pct === null) return `<div class="improve-card on-track"><div class="cat-name">${label}</div><div class="cat-pct">—</div><div class="cat-msg">No attempts yet</div></div>`;
+      const cls = pct < 60 ? 'needs-work' : pct < 80 ? 'on-track' : 'strong';
+      const msg = pct < 60 ? '⚠ Needs focused practice. Review and retry this category.'
+                : pct < 80 ? '👍 Making progress. A few more sessions will build confidence.'
+                : '🌟 Strong performance. Keep it up!';
+      const barColor = pct < 60 ? '#dc2626' : pct < 80 ? '#d97706' : '#16a34a';
+      return `<div class="improve-card ${cls}">
+        <div class="cat-name">${label}</div>
+        <div class="cat-pct">${pct}%</div>
+        <div class="progress-bar-wrap"><div class="progress-bar" style="width:${pct}%;background:${barColor};"></div></div>
+        <div class="cat-msg">${msg}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // Load on page open
+  loadData();
+</script>
+
+</body>
+</html>
