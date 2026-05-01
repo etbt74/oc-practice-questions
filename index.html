@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OC Exam Practice</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f1f5f9; color: #1e293b; min-height: 100vh; }
+
+    header {
+      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+      color: #fff; text-align: center; padding: 48px 32px 56px;
+    }
+    header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+    header p  { font-size: 1rem; opacity: .85; max-width: 500px; margin: 0 auto; line-height: 1.6; }
+
+    .container { max-width: 900px; margin: -28px auto 60px; padding: 0 20px; }
+
+    .weeks-section { margin-bottom: 36px; }
+    .week-header { font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #94a3b8; margin-bottom: 14px; padding-left: 4px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+
+    .card {
+      background: #fff; border-radius: 12px; padding: 24px 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.09); text-decoration: none; color: inherit;
+      border-top: 5px solid; transition: transform .15s, box-shadow .15s; display: block;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.13); }
+
+    .card.reading  { border-top-color: #1e40af; }
+    .card.thinking { border-top-color: #7c3aed; }
+    .card.maths    { border-top-color: #065f46; }
+
+    .card-icon { font-size: 2rem; margin-bottom: 12px; }
+    .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+    .card-sub   { font-size: .85rem; color: #64748b; line-height: 1.5; }
+    .card-badge {
+      display: inline-block; margin-top: 14px; padding: 4px 12px;
+      border-radius: 20px; font-size: .78rem; font-weight: 600;
+    }
+    .card.reading  .card-badge { background: #dbeafe; color: #1e40af; }
+    .card.thinking .card-badge { background: #ede9fe; color: #6d28d9; }
+    .card.maths    .card-badge { background: #d1fae5; color: #065f46; }
+
+    .dashboard-btn {
+      display: block; background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+      color: #fff; text-decoration: none; border-radius: 12px; padding: 22px 28px;
+      margin-top: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      transition: opacity .2s; display: flex; align-items: center; gap: 16px;
+    }
+    .dashboard-btn:hover { opacity: .92; }
+    .dashboard-btn .icon { font-size: 2.2rem; }
+    .dashboard-btn .text h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .dashboard-btn .text p  { font-size: .87rem; opacity: .85; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>OC Exam Practice</h1>
+  <p>Select a question set below. Complete it, then click <strong>Mark</strong> to receive instant feedback and track your progress.</p>
+</header>
+
+<div class="container">
+
+  <!-- Week 1 -->
+  <div class="weeks-section">
+    <div class="week-header">Week 1</div>
+    <div class="cards">
+      <a class="card reading" href="questions/week1-reading.html">
+        <div class="card-icon">📖</div>
+        <div class="card-title">Reading Comprehension</div>
+        <div class="card-sub">10 questions based on a passage about ants and their role in the ecosystem.</div>
+        <span class="card-badge">10 Questions</span>
+      </a>
+      <a class="card thinking" href="questions/week1-thinking.html">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Critical Thinking</div>
+        <div class="card-sub">10 logic, pattern, and reasoning questions to develop problem-solving skills.</div>
+        <span class="card-badge">10 Questions</span>
+      </a>
+      <a class="card maths" href="questions/week1-maths.html">
+        <div class="card-icon">🔢</div>
+        <div class="card-title">Mathematics</div>
+        <div class="card-sub">10 questions covering number operations, fractions, measurement, and patterns.</div>
+        <span class="card-badge">10 Questions</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Dashboard link -->
+  <a class="dashboard-btn" href="dashboard.html">
+    <div class="icon">📊</div>
+    <div class="text">
+      <h2>Progress Dashboard</h2>
+      <p>View your score trends, category performance, and areas for improvement.</p>
+    </div>
+  </a>
+
+</div>
+
+</body>
+</html>
