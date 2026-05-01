@@ -8,5 +8,15 @@
     "score": 4,
     "totalQuestions": 10,
     "percentage": 40
+  },
+  {
+    "id": 1777613202378,
+    "timestamp": "2026-05-01T05:26:42.379Z",
+    "studentName": "Student",
+    "category": "Mathematics",
+    "week": 1,
+    "score": 2,
+    "totalQuestions": 10,
+    "percentage": 20
   }
 ]
