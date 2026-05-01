@@ -18,5 +18,15 @@
     "score": 2,
     "totalQuestions": 10,
     "percentage": 20
+  },
+  {
+    "id": 1777613227088,
+    "timestamp": "2026-05-01T05:27:07.088Z",
+    "studentName": "Student",
+    "category": "Reading Comprehension",
+    "week": 1,
+    "score": 5,
+    "totalQuestions": 10,
+    "percentage": 50
   }
 ]
