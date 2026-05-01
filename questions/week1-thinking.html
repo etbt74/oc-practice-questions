@@ -285,15 +285,19 @@
     document.getElementById('score-panel').style.display = 'block';
     document.getElementById('mark-btn').disabled = true;
 
-    document.getElementById('status-msg').innerHTML = '<span class="saving-msg">Saving your result…</span>';
+    const statusEl = document.getElementById('status-msg');
+    statusEl.innerHTML = '<span class="saving-msg">⏳ Saving your result…</span>';
     fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ studentName, category: 'Critical Thinking', week: 1, score, totalQuestions: TOTAL })
     })
-    .then(r => r.json())
-    .then(() => { document.getElementById('status-msg').innerHTML = ''; })
-    .catch(() => { document.getElementById('status-msg').innerHTML = '<span class="error-msg">Result saved locally — could not connect to server.</span>'; });
+    .then(r => {
+      if (!r.ok) return r.json().then(e => { throw new Error(e.error || `Server error ${r.status}`); });
+      return r.json();
+    })
+    .then(() => { statusEl.innerHTML = '<span style="color:#16a34a;font-size:.88rem;">✓ Result saved to dashboard.</span>'; })
+    .catch(err => { statusEl.innerHTML = `<span class="error-msg">⚠ Could not save result: ${err.message}. Please screenshot your score and inform your teacher.</span>`; });
   }
 </script>
 
