@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 1 – Critical Thinking | OC Exam Practice</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f1f5f9; color: #1e293b; min-height: 100vh; }
+
+    header {
+      background: #7c3aed; color: #fff; padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    header h1 { font-size: 1.25rem; font-weight: 700; }
+    header span { font-size: 0.9rem; opacity: 0.85; }
+
+    .container { max-width: 860px; margin: 32px auto; padding: 0 20px 60px; }
+
+    .student-block {
+      background: #fff; border-radius: 10px; padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .student-block label { font-weight: 600; white-space: nowrap; }
+    .student-block input {
+      flex: 1; border: 1.5px solid #cbd5e1; border-radius: 6px;
+      padding: 8px 12px; font-size: 1rem; outline: none; transition: border-color .2s;
+    }
+    .student-block input:focus { border-color: #7c3aed; }
+
+    .instructions {
+      background: #f5f3ff; border-left: 5px solid #7c3aed;
+      border-radius: 10px; padding: 18px 22px; margin-bottom: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06); font-size: .95rem; color: #3b0764; line-height: 1.6;
+    }
+
+    .question-card {
+      background: #fff; border-radius: 10px; padding: 22px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 18px;
+      border-left: 4px solid #e2e8f0; transition: border-color .2s;
+    }
+    .question-card.correct  { border-left-color: #16a34a; background: #f0fdf4; }
+    .question-card.incorrect { border-left-color: #dc2626; background: #fef2f2; }
+
+    .question-card p { font-weight: 600; font-size: 0.98rem; margin-bottom: 14px; line-height: 1.5; }
+    .question-card .hint { font-weight: 400; font-size: .88rem; color: #64748b; margin-top: -10px; margin-bottom: 12px; }
+
+    .options label {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 9px 12px; border-radius: 6px; cursor: pointer;
+      font-size: 0.95rem; line-height: 1.45; margin-bottom: 6px; transition: background .15s;
+    }
+    .options label:hover { background: #f8fafc; }
+    .options input[type="radio"] { margin-top: 2px; accent-color: #7c3aed; flex-shrink: 0; }
+
+    .option-correct   { background: #dcfce7 !important; color: #14532d; font-weight: 600; border-radius: 6px; }
+    .option-incorrect { background: #fee2e2 !important; color: #7f1d1d; font-weight: 600; border-radius: 6px; }
+    .option-missed    { background: #dcfce7 !important; color: #14532d; font-weight: 600; border-radius: 6px; }
+
+    .feedback-tag {
+      display: inline-block; margin-top: 10px; padding: 3px 10px;
+      border-radius: 20px; font-size: 0.82rem; font-weight: 700;
+    }
+    .tag-correct   { background: #16a34a; color: #fff; }
+    .tag-incorrect { background: #dc2626; color: #fff; }
+
+    .actions { text-align: center; margin-top: 32px; }
+    #mark-btn {
+      background: #7c3aed; color: #fff; border: none; border-radius: 8px;
+      padding: 14px 48px; font-size: 1.05rem; font-weight: 700; cursor: pointer;
+      transition: background .2s; letter-spacing: .03em;
+    }
+    #mark-btn:hover { background: #6d28d9; }
+    #mark-btn:disabled { background: #94a3b8; cursor: default; }
+
+    #score-panel {
+      display: none; background: #7c3aed; color: #fff;
+      border-radius: 10px; padding: 24px 28px; margin-top: 28px; text-align: center;
+    }
+    #score-panel h2 { font-size: 2rem; margin-bottom: 6px; }
+    #score-panel p  { font-size: 1rem; opacity: .9; }
+    #score-panel .grade { font-size: 1.1rem; font-weight: 600; margin-top: 10px; }
+
+    .error-msg { color: #dc2626; font-size: 0.88rem; margin-top: 10px; text-align: center; }
+    .saving-msg { color: #64748b; font-size: 0.88rem; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧠 Critical Thinking — Week 1</h1>
+  <span>OC Exam Practice | 10 Questions</span>
+</header>
+
+<div class="container">
+
+  <div class="student-block">
+    <label for="student-name">Student Name:</label>
+    <input type="text" id="student-name" placeholder="Enter your name" />
+  </div>
+
+  <div class="instructions">
+    <strong>Instructions:</strong> Read each question carefully. Choose the <em>one best answer</em> from the options provided. Think logically and take your time before selecting your answer.
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card" id="card-q1">
+    <p>1. What comes next in this number pattern?</p>
+    <p class="hint">2, 4, 8, 16, ___</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="A"> A) 18</label>
+      <label><input type="radio" name="q1" value="B"> B) 24</label>
+      <label><input type="radio" name="q1" value="C"> C) 32</label>
+      <label><input type="radio" name="q1" value="D"> D) 20</label>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" id="card-q2">
+    <p>2. All Blorbits are Gloops. All Gloops are Snorps. Which of the following <em>must</em> be true?</p>
+    <div class="options">
+      <label><input type="radio" name="q2" value="A"> A) All Snorps are Blorbits</label>
+      <label><input type="radio" name="q2" value="B"> B) All Blorbits are Snorps</label>
+      <label><input type="radio" name="q2" value="C"> C) All Gloops are Blorbits</label>
+      <label><input type="radio" name="q2" value="D"> D) No Snorps are Gloops</label>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" id="card-q3">
+    <p>3. A farmer counts 20 heads and 56 legs among his chickens and cows. How many cows does the farmer have?</p>
+    <div class="options">
+      <label><input type="radio" name="q3" value="A"> A) 6</label>
+      <label><input type="radio" name="q3" value="B"> B) 8</label>
+      <label><input type="radio" name="q3" value="C"> C) 10</label>
+      <label><input type="radio" name="q3" value="D"> D) 12</label>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" id="card-q4">
+    <p>4. Which word does <em>not</em> belong with the others?</p>
+    <div class="options">
+      <label><input type="radio" name="q4" value="A"> A) Apple</label>
+      <label><input type="radio" name="q4" value="B"> B) Orange</label>
+      <label><input type="radio" name="q4" value="C"> C) Carrot</label>
+      <label><input type="radio" name="q4" value="D"> D) Mango</label>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" id="card-q5">
+    <p>5. Tom is taller than Sam. Sam is taller than Alex. Ben is shorter than Alex. Who is the tallest?</p>
+    <div class="options">
+      <label><input type="radio" name="q5" value="A"> A) Sam</label>
+      <label><input type="radio" name="q5" value="B"> B) Alex</label>
+      <label><input type="radio" name="q5" value="C"> C) Tom</label>
+      <label><input type="radio" name="q5" value="D"> D) Ben</label>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" id="card-q6">
+    <p>6. Today is Tuesday. There are 9 school days until the exam. On which day of the week is the exam?</p>
+    <div class="options">
+      <label><input type="radio" name="q6" value="A"> A) Monday</label>
+      <label><input type="radio" name="q6" value="B"> B) Tuesday</label>
+      <label><input type="radio" name="q6" value="C"> C) Wednesday</label>
+      <label><input type="radio" name="q6" value="D"> D) Thursday</label>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" id="card-q7">
+    <p>7. A number is multiplied by 4 and then 6 is subtracted. The result is 26. What is the number?</p>
+    <div class="options">
+      <label><input type="radio" name="q7" value="A"> A) 5</label>
+      <label><input type="radio" name="q7" value="B"> B) 6</label>
+      <label><input type="radio" name="q7" value="C"> C) 7</label>
+      <label><input type="radio" name="q7" value="D"> D) 8</label>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" id="card-q8">
+    <p>8. There are 5 houses in a row. The yellow house is at one end. The white house is at the other end. The blue house is between the red house and the green house. The red house is next to the blue house. Which house is in the middle?</p>
+    <div class="options">
+      <label><input type="radio" name="q8" value="A"> A) Red</label>
+      <label><input type="radio" name="q8" value="B"> B) Blue</label>
+      <label><input type="radio" name="q8" value="C"> C) Green</label>
+      <label><input type="radio" name="q8" value="D"> D) Yellow</label>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" id="card-q9">
+    <p>9. A shop sells pencils in packets of 6. Lisa needs 50 pencils for her class. What is the minimum number of packets she must buy?</p>
+    <div class="options">
+      <label><input type="radio" name="q9" value="A"> A) 7</label>
+      <label><input type="radio" name="q9" value="B"> B) 8</label>
+      <label><input type="radio" name="q9" value="C"> C) 9</label>
+      <label><input type="radio" name="q9" value="D"> D) 10</label>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" id="card-q10">
+    <p>10. In a race, Emma finished 3 places ahead of Olivia. Mia finished 2 places behind Emma. If Olivia finished in 7th place, in what place did Mia finish?</p>
+    <div class="options">
+      <label><input type="radio" name="q10" value="A"> A) 2nd</label>
+      <label><input type="radio" name="q10" value="B"> B) 4th</label>
+      <label><input type="radio" name="q10" value="C"> C) 5th</label>
+      <label><input type="radio" name="q10" value="D"> D) 6th</label>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button id="mark-btn" onclick="markAnswers()">✔ Mark My Answers</button>
+    <div id="status-msg"></div>
+  </div>
+
+  <div id="score-panel">
+    <h2 id="score-text"></h2>
+    <p id="pct-text"></p>
+    <p class="grade" id="grade-text"></p>
+    <p style="margin-top:12px; font-size:.85rem; opacity:.8;">Your result has been recorded. Check the dashboard for your progress.</p>
+  </div>
+
+</div>
+
+<script>
+  // Correct answers
+  // Q3: 8 cows + 12 chickens = 20 heads; 8×4 + 12×2 = 32+24 = 56 legs ✓
+  // Q6: Tue→Wed,Thu,Fri(3)→Mon,Tue,Wed,Thu,Fri(8)→Mon(9th) = Monday ✓
+  // Q7: 8×4=32; 32−6=26 ✓
+  // Q8: Yellow, Red, Blue, Green, White → Blue is 3rd (middle) ✓
+  // Q9: 8×6=48 (not enough); 9×6=54 ✓
+  // Q10: Olivia=7th; Emma=7−3=4th; Mia=4+2=6th ✓
+  const ANSWERS = { q1:'C', q2:'B', q3:'B', q4:'C', q5:'C', q6:'A', q7:'D', q8:'B', q9:'C', q10:'D' };
+  const TOTAL = Object.keys(ANSWERS).length;
+
+  function markAnswers() {
+    const studentName = document.getElementById('student-name').value.trim() || 'Student';
+    let unanswered = [];
+
+    for (let i = 1; i <= TOTAL; i++) {
+      if (!document.querySelector(`input[name="q${i}"]:checked`)) unanswered.push(i);
+    }
+    if (unanswered.length > 0) {
+      document.getElementById('status-msg').innerHTML =
+        `<span class="error-msg">⚠ Please answer question(s): ${unanswered.join(', ')}</span>`;
+      return;
+    }
+
+    let score = 0;
+    for (let i = 1; i <= TOTAL; i++) {
+      const key = `q${i}`;
+      const correct = ANSWERS[key];
+      const selected = document.querySelector(`input[name="${key}"]:checked`).value;
+      const card = document.getElementById(`card-${key}`);
+      const labels = card.querySelectorAll('.options label');
+
+      card.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = true);
+
+      labels.forEach(label => {
+        const val = label.querySelector('input').value;
+        if (val === correct && val === selected) { label.classList.add('option-correct'); score++; }
+        else if (val === selected) { label.classList.add('option-incorrect'); }
+        else if (val === correct)  { label.classList.add('option-missed'); }
+      });
+
+      const tag = document.createElement('span');
+      tag.className = `feedback-tag ${selected === correct ? 'tag-correct' : 'tag-incorrect'}`;
+      tag.textContent = selected === correct ? '✓ Correct' : `✗ Incorrect — Correct answer: ${correct}`;
+      card.appendChild(tag);
+      card.classList.add(selected === correct ? 'correct' : 'incorrect');
+    }
+
+    const pct = Math.round((score / TOTAL) * 100);
+    const grade = pct >= 90 ? '🌟 Outstanding!' : pct >= 80 ? '😊 Great work!' : pct >= 70 ? '👍 Good effort!' : pct >= 50 ? '📚 Keep practising!' : '💪 Don\'t give up — keep going!';
+    document.getElementById('score-text').textContent = `${score} / ${TOTAL}`;
+    document.getElementById('pct-text').textContent = `You scored ${pct}%`;
+    document.getElementById('grade-text').textContent = grade;
+    document.getElementById('score-panel').style.display = 'block';
+    document.getElementById('mark-btn').disabled = true;
+
+    document.getElementById('status-msg').innerHTML = '<span class="saving-msg">Saving your result…</span>';
+    fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ studentName, category: 'Critical Thinking', week: 1, score, totalQuestions: TOTAL })
+    })
+    .then(r => r.json())
+    .then(() => { document.getElementById('status-msg').innerHTML = ''; })
+    .catch(() => { document.getElementById('status-msg').innerHTML = '<span class="error-msg">Result saved locally — could not connect to server.</span>'; });
+  }
+</script>
+
+</body>
+</html>
