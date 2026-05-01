@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 1 – Reading Comprehension | OC Exam Practice</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f1f5f9; color: #1e293b; min-height: 100vh; }
+
+    header {
+      background: #1e40af; color: #fff; padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    header h1 { font-size: 1.25rem; font-weight: 700; }
+    header span { font-size: 0.9rem; opacity: 0.85; }
+
+    .container { max-width: 860px; margin: 32px auto; padding: 0 20px 60px; }
+
+    .student-block {
+      background: #fff; border-radius: 10px; padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .student-block label { font-weight: 600; white-space: nowrap; }
+    .student-block input {
+      flex: 1; border: 1.5px solid #cbd5e1; border-radius: 6px;
+      padding: 8px 12px; font-size: 1rem; outline: none;
+      transition: border-color .2s;
+    }
+    .student-block input:focus { border-color: #1e40af; }
+
+    .passage-card {
+      background: #eff6ff; border-left: 5px solid #1e40af;
+      border-radius: 10px; padding: 22px 26px; margin-bottom: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .passage-card h2 { font-size: 1rem; font-weight: 700; color: #1e40af; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .05em; }
+    .passage-card p { line-height: 1.8; font-size: 0.97rem; color: #334155; margin-bottom: 10px; }
+
+    .question-card {
+      background: #fff; border-radius: 10px; padding: 22px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 18px;
+      border-left: 4px solid #e2e8f0; transition: border-color .2s;
+    }
+    .question-card.correct  { border-left-color: #16a34a; background: #f0fdf4; }
+    .question-card.incorrect { border-left-color: #dc2626; background: #fef2f2; }
+
+    .question-card p { font-weight: 600; font-size: 0.98rem; margin-bottom: 14px; line-height: 1.5; }
+
+    .options label {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 9px 12px; border-radius: 6px; cursor: pointer;
+      font-size: 0.95rem; line-height: 1.45; margin-bottom: 6px;
+      transition: background .15s;
+    }
+    .options label:hover { background: #f8fafc; }
+    .options input[type="radio"] { margin-top: 2px; accent-color: #1e40af; flex-shrink: 0; }
+
+    .option-correct   { background: #dcfce7 !important; color: #14532d; font-weight: 600; border-radius: 6px; }
+    .option-incorrect { background: #fee2e2 !important; color: #7f1d1d; font-weight: 600; border-radius: 6px; }
+    .option-missed    { background: #dcfce7 !important; color: #14532d; font-weight: 600; border-radius: 6px; }
+
+    .feedback-tag {
+      display: inline-block; margin-top: 10px; padding: 3px 10px;
+      border-radius: 20px; font-size: 0.82rem; font-weight: 700;
+    }
+    .tag-correct   { background: #16a34a; color: #fff; }
+    .tag-incorrect { background: #dc2626; color: #fff; }
+
+    .actions { text-align: center; margin-top: 32px; }
+    #mark-btn {
+      background: #1e40af; color: #fff; border: none; border-radius: 8px;
+      padding: 14px 48px; font-size: 1.05rem; font-weight: 700; cursor: pointer;
+      transition: background .2s; letter-spacing: .03em;
+    }
+    #mark-btn:hover { background: #1d4ed8; }
+    #mark-btn:disabled { background: #94a3b8; cursor: default; }
+
+    #score-panel {
+      display: none; background: #1e40af; color: #fff;
+      border-radius: 10px; padding: 24px 28px; margin-top: 28px; text-align: center;
+    }
+    #score-panel h2 { font-size: 2rem; margin-bottom: 6px; }
+    #score-panel p  { font-size: 1rem; opacity: .9; }
+    #score-panel .grade { font-size: 1.1rem; font-weight: 600; margin-top: 10px; }
+
+    .error-msg { color: #dc2626; font-size: 0.88rem; margin-top: 10px; text-align: center; }
+    .saving-msg { color: #64748b; font-size: 0.88rem; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📖 Reading Comprehension — Week 1</h1>
+  <span>OC Exam Practice | 10 Questions</span>
+</header>
+
+<div class="container">
+
+  <!-- Student Name -->
+  <div class="student-block">
+    <label for="student-name">Student Name:</label>
+    <input type="text" id="student-name" placeholder="Enter your name" />
+  </div>
+
+  <!-- Reading Passage -->
+  <div class="passage-card">
+    <h2>📄 Read the passage below, then answer the questions.</h2>
+    <p>
+      Ants are fascinating insects that live in large groups called colonies. A colony can have anywhere
+      from a few hundred to millions of ants. Every ant in the colony has a specific job.
+      The queen ant lays eggs and is responsible for producing new ants. Worker ants, which are all female,
+      gather food, care for the young, and defend the nest. Male ants, called drones, have only one purpose
+      — to mate with the queen.
+    </p>
+    <p>
+      Ants communicate with each other using chemicals called pheromones. When a worker ant finds food,
+      it leaves a trail of pheromones on its way back to the nest. Other ants follow this scent trail to
+      find the food source. This is why you often see ants walking in a line.
+    </p>
+    <p>
+      Ants are incredibly strong for their size. They can carry objects up to 50 times their own body weight.
+      If a person could do the same, they would be able to lift a small car! Ants also work together to
+      move objects that are too heavy for one ant alone.
+    </p>
+    <p>
+      Despite their tiny size, ants play a vital role in our ecosystem. They help to aerate the soil by
+      digging tunnels, which allows water and nutrients to reach plant roots. They also help to break down
+      dead plants and animals, returning nutrients to the soil.
+    </p>
+  </div>
+
+  <!-- Questions -->
+  <div class="question-card" id="card-q1">
+    <p>1. What is a group of ants living together called?</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="A"> A) A herd</label>
+      <label><input type="radio" name="q1" value="B"> B) A colony</label>
+      <label><input type="radio" name="q1" value="C"> C) A swarm</label>
+      <label><input type="radio" name="q1" value="D"> D) A pack</label>
+    </div>
+  </div>
+
+  <div class="question-card" id="card-q2">
+    <p>2. Which of the following is <em>not</em> a job performed by worker ants?</p>
+    <div class="options">
+      <label><input type="radio" name="q2" value="A"> A) Gathering food</label>
+      <label><input type="radio" name="q2" value="B"> B) Caring for the young</label>
+      <label><input type="radio" name="q2" value="C"> C) Laying eggs</label>
+      <label><input type="radio" name="q2" value="D"> D) Defending the nest</label>
+    </div>
+  </div>
+
+  <div class="question-card" id="card-q3">
+    <p>3. How do ants communicate with each other?</p>
+    <div class="options">
+      <label><input type="radio" name="q3" value="A"> A) By making sounds</label>
+      <label><input type="radio" name="q3" value="B"> B) By using chemicals called pheromones</label>
+      <label><input type="radio" name="q3" value="C"> C) By waving their antennae</label>
+      <label><input type="radio" name="q3" value="D"> D) By changing colour</label>
+    </div>
+  </div>
+
+  <div class="question-card" id="card-q4">
+    <p>4. Why do ants often walk in a line?</p>
+    <div class="options">
+      <label><input type="radio" name="q4" value="A"> A) They are following the queen ant</label>
+      <label><input type="radio" name="q4" value="B"> B) They are searching for water</label>
+      <label><input type="radio" name="q4" value="C"> C) They are following a scent trail left by another ant</label>
+      <label><input type="radio" name="q4" value="D"> D) They are returning to their nest after sleeping</label>
+    </div>
+  </div>
+
+  <div class="question-card" id="card-q5">
+    <p>5. According to the passage, how much weight can an ant carry compared to its own body weight?</p>
+    <div class="options">
+      <label><input type="radio" name="q5" value="A"> A) Up to 10 times its body weight</label>
+      <label><input type="radio" name="q5" value="B"> B) Up to 20 times its body weight</label>
+      <label><input type="radio" name="q5" value="C"> C) Up to 50 times its body weight</label>
+      <label><input type="radio" name="q5" value="D"> D) Up to 100 times its body weight</label>
+    </div>
+  </div>
+
+  <div class="question-card" id="card-q6">
+    <p>6. If a person could carry the same proportion of weight as an ant, what would they be able to lift?</p>
+    <div class="options">
+      <label><input type="radio" name="q6" value="A"> A) A bicycle</label>
+      <label><input type="radio" name="q6" value="B"> B) A small car</label>
+      <label><input type="radio" name="q6" value="C"> C) A truck</label>
+      <label><input type="radio" name="q6" value="D"> D) A house</label>
+    </div>
+  </div>
+
+  <div class="question-card" id="card-q7">
+    <p>7. Which of the following best describes the role of male ants (drones)?</p>
+    <div class="options">
+      <label><input type="radio" name="q7" value="A"> A) They gather food for the colony</label>
+      <label><input type="radio" name="q7" value="B"> B) They protect the nest from enemies</label>
+      <label><input type="radio" name="q7" value="C"> C) They care for the queen's eggs</label>
+      <label><input type="radio" name="q7" value="D"> D) They mate with the queen</label>
+    </div>
+  </div>
+
+  <div class="question-card" id="card-q8">
+    <p>8. How do ants help plants to grow, according to the passage?</p>
+    <div class="options">
+      <label><input type="radio" name="q8" value="A"> A) They carry seeds to new locations</label>
+      <label><input type="radio" name="q8" value="B"> B) They water the plants with their saliva</label>
+      <label><input type="radio" name="q8" value="C"> C) They dig tunnels that allow water and nutrients to reach plant roots</label>
+      <label><input type="radio" name="q8" value="D"> D) They protect plants from other insects</label>
+    </div>
+  </div>
+
+  <div class="question-card" id="card-q9">
+    <p>9. In the passage, the word <strong>"aerate"</strong> most likely means to:</p>
+    <div class="options">
+      <label><input type="radio" name="q9" value="A"> A) Water thoroughly</label>
+      <label><input type="radio" name="q9" value="B"> B) Allow air to pass through</label>
+      <label><input type="radio" name="q9" value="C"> C) Dig deeply</label>
+      <label><input type="radio" name="q9" value="D"> D) Fertilise with chemicals</label>
+    </div>
+  </div>
+
+  <div class="question-card" id="card-q10">
+    <p>10. What is the main purpose of this passage?</p>
+    <div class="options">
+      <label><input type="radio" name="q10" value="A"> A) To persuade readers to protect ant colonies</label>
+      <label><input type="radio" name="q10" value="B"> B) To describe only the life cycle of a queen ant</label>
+      <label><input type="radio" name="q10" value="C"> C) To share interesting facts about ants and explain their importance</label>
+      <label><input type="radio" name="q10" value="D"> D) To compare ants with other insects</label>
+    </div>
+  </div>
+
+  <!-- Mark Button -->
+  <div class="actions">
+    <button id="mark-btn" onclick="markAnswers()">✔ Mark My Answers</button>
+    <div id="status-msg"></div>
+  </div>
+
+  <!-- Score Panel -->
+  <div id="score-panel">
+    <h2 id="score-text"></h2>
+    <p id="pct-text"></p>
+    <p class="grade" id="grade-text"></p>
+    <p style="margin-top:12px; font-size:.85rem; opacity:.8;">Your result has been recorded. Check the dashboard for your progress.</p>
+  </div>
+
+</div>
+
+<script>
+  // Correct answers
+  const ANSWERS = { q1:'B', q2:'C', q3:'B', q4:'C', q5:'C', q6:'B', q7:'D', q8:'C', q9:'B', q10:'C' };
+  const TOTAL = Object.keys(ANSWERS).length;
+
+  function markAnswers() {
+    const studentName = document.getElementById('student-name').value.trim() || 'Student';
+    let score = 0;
+    let unanswered = [];
+
+    for (let i = 1; i <= TOTAL; i++) {
+      const key = `q${i}`;
+      const selected = document.querySelector(`input[name="${key}"]:checked`);
+      if (!selected) { unanswered.push(i); }
+    }
+
+    if (unanswered.length > 0) {
+      document.getElementById('status-msg').innerHTML =
+        `<span class="error-msg">⚠ Please answer question(s): ${unanswered.join(', ')}</span>`;
+      return;
+    }
+
+    // Mark each question
+    for (let i = 1; i <= TOTAL; i++) {
+      const key = `q${i}`;
+      const correct = ANSWERS[key];
+      const selected = document.querySelector(`input[name="${key}"]:checked`).value;
+      const card = document.getElementById(`card-${key}`);
+      const labels = card.querySelectorAll('.options label');
+
+      // Disable all radios
+      card.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = true);
+
+      labels.forEach(label => {
+        const val = label.querySelector('input').value;
+        if (val === correct && val === selected) {
+          label.classList.add('option-correct');
+          score++;
+        } else if (val === selected && val !== correct) {
+          label.classList.add('option-incorrect');
+        } else if (val === correct && val !== selected) {
+          label.classList.add('option-missed');
+        }
+      });
+
+      const tag = document.createElement('span');
+      tag.className = `feedback-tag ${selected === correct ? 'tag-correct' : 'tag-incorrect'}`;
+      tag.textContent = selected === correct ? '✓ Correct' : `✗ Incorrect — Correct answer: ${correct}`;
+      card.appendChild(tag);
+
+      card.classList.add(selected === correct ? 'correct' : 'incorrect');
+    }
+
+    // Show score
+    const pct = Math.round((score / TOTAL) * 100);
+    let grade = pct >= 90 ? '🌟 Outstanding!' : pct >= 80 ? '😊 Great work!' : pct >= 70 ? '👍 Good effort!' : pct >= 50 ? '📚 Keep practising!' : '💪 Don\'t give up — keep going!';
+    document.getElementById('score-text').textContent = `${score} / ${TOTAL}`;
+    document.getElementById('pct-text').textContent = `You scored ${pct}%`;
+    document.getElementById('grade-text').textContent = grade;
+    document.getElementById('score-panel').style.display = 'block';
+
+    // Disable Mark button
+    document.getElementById('mark-btn').disabled = true;
+
+    // Submit to API
+    document.getElementById('status-msg').innerHTML = '<span class="saving-msg">Saving your result…</span>';
+    fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ studentName, category: 'Reading Comprehension', week: 1, score, totalQuestions: TOTAL })
+    })
+    .then(r => r.json())
+    .then(() => { document.getElementById('status-msg').innerHTML = ''; })
+    .catch(() => { document.getElementById('status-msg').innerHTML = '<span class="error-msg">Result saved locally — could not connect to server.</span>'; });
+  }
+</script>
+
+</body>
+</html>
