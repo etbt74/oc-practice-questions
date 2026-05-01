@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": 1777612713340,
+    "timestamp": "2026-05-01T05:18:33.340Z",
+    "studentName": "Michael",
+    "category": "Reading Comprehension",
+    "week": 1,
+    "score": 2,
+    "totalQuestions": 10,
+    "percentage": 20
+  }
+]
