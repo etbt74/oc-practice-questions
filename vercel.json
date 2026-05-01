@@ -1,12 +1,3 @@
 {
-  "version": 2,
-  "functions": {
-    "api/submit.js": {
-      "runtime": "@vercel/node@3.x"
-    }
-  },
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/$1" }
-  ]
+  "version": 2
 }
