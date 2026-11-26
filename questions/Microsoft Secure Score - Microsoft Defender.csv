@@ -1,0 +1,285 @@
+﻿Rank,Recommended action,Score impact,Points achieved,Status,Regressed,Have license?,Category,Product,Last synced 
+1,"Block executable files from running unless they meet a prevalence, age, or trusted list criterion",'+0.55%,0/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+2,Block credential stealing from the Windows local security authority subsystem (lsass.exe),'+0.55%,0/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+3,Block rebooting machine in Safe Mode,'+0.55%,0/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+4, Identify Entra ID privileged accounts that are also privileged in Active Directory,'+0.55%,0/9,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+5,Block executable content from email client and webmail,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+6,Block all Office applications from creating child processes,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+7,Block Office applications from creating executable content,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+8,Block Office applications from injecting code into other processes,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+9,Block JavaScript or VBScript from launching downloaded executable content,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+10,Block execution of potentially obfuscated scripts,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+11,Block Win32 API calls from Office macros,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+12,Use advanced protection against ransomware,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+13,Block process creations originating from PSExec and WMI commands,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+14,Block untrusted and unsigned processes that run from USB,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+15,Block Office communication application from creating child processes,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+16,Block Adobe Reader from creating child processes,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+17,Block persistence through WMI event subscription,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+18,Block abuse of exploited vulnerable signed drivers,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+19,Block use of copied or impersonated system tools,'+0.55%,0.09/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+20,Enable impersonated domain protection,'+0.49%,0/8,To address,No,Yes,Apps,Defender for Office,11/24/2026
+21,Ensure the 'Password expiration policy' is set to 'Set passwords to never expire (recommended)','+0.49%,0/8,To address,No,Yes,Identity,Microsoft Entra ID,11/22/2026
+22,Enable 'Local Security Authority (LSA) protection','+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+23,Set User Account Control (UAC) to automatically deny elevation requests,'+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+24,Disable 'Enumerate administrator accounts on elevation','+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+25,Set LAN Manager authentication level to 'Send NTLMv2 response only. Refuse LM & NTLM','+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+26,Disable 'Allow Basic authentication' for WinRM Client,'+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+27,Disable 'Allow Basic authentication' for WinRM Service,'+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+28,Disable Solicited Remote Assistance,'+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+29,Disable NTLM authentication for Windows,'+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+30,Block outbound network connections from Microsoft HTML Application Host (mshta.exe),'+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+31,Ensure LAPS is enabled on every endpoint and server,'+0.49%,0/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+32,Disable 'Autoplay' for all drives,'+0.49%,0.04/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+33,Set default behavior for 'AutoRun' to 'Enabled: Do not execute any autorun commands','+0.49%,0.04/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+34,Disable Anonymous enumeration of shares,'+0.49%,0.04/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+35,Turn on Tamper Protection,'+0.49%,0.08/8,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+36,Set controlled folder access to enabled or audit mode,'+0.49%,0.08/8,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+37,Turn on Microsoft Defender Credential Guard,'+0.49%,0.08/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+38,Encrypt LDAP client traffic to protect sensitive data in transit,'+0.43%,0/7,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+39,Require LDAP client signing to prevent tampering and protect directory authentication,'+0.43%,0/7,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+40,Ensure non-admin accounts cannot reset passwords for sensitive groups,'+0.43%,0/7,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+41,Ensure non-admin identities cannot Write DACL permissions on sensitive groups,'+0.43%,0/7,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+42,Ensure 'Phishing-resistant MFA strength' is required for Administrators,'+0.43%,0/7,To address,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+43,Ensure password protection is enabled for on-prem Active Directory,'+0.37%,0/6,To address,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+44,Ensure 'External sharing' of calendars is not available,'+0.31%,0/5,To address,No,Yes,Apps,Exchange Online,11/24/2026
+45,Ensure additional storage providers are restricted in Outlook on the web,'+0.31%,0/5,To address,No,Yes,Apps,Exchange Online,11/24/2026
+46,Ensure all forms of mail forwarding are blocked and/or disabled,'+0.31%,0/5,To address,Yes,Yes,Apps,Defender for Office,11/24/2026
+47,Enable 'Hide Option to Enable or Disable Updates','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+48,Disable 'Continue running background apps when Google Chrome is closed','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+49,Disable 'Password Manager','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+50,Set 'Interactive logon: Machine inactivity limit' to '1-900 seconds','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+51,Set 'Enforce password history' to '24 or more password(s)','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+52,Set 'Minimum password age' to '1 or more day(s)','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+53,Set user authentication for remote connections by using Network Level Authentication to 'Enabled','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+54,Disable merging of local Microsoft Defender Firewall connection rules with group policy firewall rules for the Public profile,'+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+55,Enable 'Apply UAC restrictions to local accounts on network logons','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+56,Disable 'Installation and configuration of Network Bridge on your DNS domain network','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+57,Prohibit use of Internet Connection Sharing on your DNS domain network,'+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+58,Set 'Minimum PIN length for startup' to '6 or more characters','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+59,Disable 'Autoplay for non-volume devices','+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+60,Disable Flash on Adobe Reader DC,'+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+61,Disable JavaScript on Adobe Reader DC,'+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+62,Set IPv6 source routing to highest protection,'+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+63,Disable IP source routing,'+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+64,Disable the local storage of passwords and credentials,'+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+65,Disable JavaScript on Adobe DC,'+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+66,Change password of built-in domain Administrator account,'+0.31%,0/5,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+67,Remove dormant accounts from sensitive groups,'+0.31%,0/5,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+68,Ensure privileged accounts are not delegated,'+0.31%,0/5,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+69,Protect and manage local admin passwords with Microsoft LAPS,'+0.31%,0/5,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+70,Remove stale Active Directory accounts,'+0.31%,0/5,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+71,Resolve unsecure account attributes,'+0.31%,0/5,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+72,Enable Virtualization-based Security (VBS),'+0.31%,0/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+73,Ensure custom banned passwords lists are used,'+0.31%,0/5,To address,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+74,Disable merging of local Microsoft Defender Firewall rules with group policy firewall rules for the Public profile,'+0.31%,0.05/5,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+75,"Set 'Maximum password age' to '60 or fewer days, but not 0'",'+0.31%,0.1/5,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+76,Ensure multifactor authentication is enabled for all users,'+0.55%,4.8/9,To address,Yes,Yes,Identity,Microsoft Entra ID,11/22/2026
+77,Fix unquoted service path for Windows services,'+0.49%,4.89/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+78,Ensure Spam confidence level (SCL) is configured in mail transport rules with specific domains,'+0.18%,0/3,To address,No,Yes,Apps,Exchange Online,11/24/2026
+79,Ensure MailTips are enabled for end users,'+0.18%,0/3,To address,No,Yes,Apps,Exchange Online,11/24/2026
+80,Ensure mailbox auditing for all users is Enabled,'+0.18%,0/3,To address,No,Yes,Apps,Exchange Online,11/24/2026
+81,Ensure Exchange Online Spam Policies are set to notify administrators,'+0.18%,0/3,To address,No,Yes,Apps,Defender for Office,11/24/2026
+82,Ensure Safe Links for Office Applications is Enabled,'+0.18%,0/3,To address,No,Yes,Apps,Defender for Office,11/24/2026
+83,Ensure users installing Outlook add-ins is not allowed,'+0.18%,0/3,To address,No,Yes,Apps,Exchange Online,11/24/2026
+84,Rotate password for Entra Connect AD DS Connector account,'+0.18%,0/3,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+85,Replace Enterprise or Domain Admin account for Entra Connect AD DS Connector account,'+0.18%,0/3,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+86,Block OneDrive for Business sync from unmanaged devices,'+0.18%,0/3,To address,No,Yes,Apps,SharePoint Online,11/26/2026
+87,Ensure SharePoint external sharing is managed through domain whitelist/blacklists,'+0.18%,0/3,To address,No,Yes,Apps,SharePoint Online,11/26/2026
+88,Ensure 'User owned apps and services' is restricted,'+0.18%,0/3,To address,No,Yes,Identity,Microsoft Admin Center,11/26/2026
+89,Ensure 'Microsoft Azure Management' is limited to administrative roles,'+0.18%,0/3,To address,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+90,Ensure Administrative accounts are separate and cloud-only,'+0.18%,0/3,To address,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+91,Ensure 'LinkedIn account connections' is disabled,'+0.18%,0/3,To address,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+92,Ensure that Sways cannot be shared with people outside of your organization,'+0.18%,0/3,To address,No,Yes,Apps,Microsoft Sway,11/26/2026
+93,Enable Memory Integrity (HVCI),'+0.43%,4.52/7,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+94,Disable the built-in Administrator account,'+0.49%,5.87/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+95,Configure which users are allowed to present in Teams meetings,'+0.12%,0/2,To address,No,Yes,Apps,Microsoft Teams,11/9/2026
+96,Publish M365 sensitivity label data classification policies,'+0.12%,0/2,To address,No,Yes,Data,Microsoft Information Protection,11/24/2026
+97,Enable 'Block third party cookies','+0.12%,0/2,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+98,Enable 'Require domain users to elevate when setting a network's location','+0.12%,0/2,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+99,Disable Microsoft Defender Firewall notifications when programs are blocked for Domain profile,'+0.12%,0.14/2,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+100,Disable Microsoft Defender Firewall notifications when programs are blocked for Private profile,'+0.12%,0.14/2,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+101,Disable Microsoft Defender Firewall notifications when programs are blocked for Public profile,'+0.12%,0.14/2,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+102,Fix Microsoft Defender for Endpoint sensor data collection,'+0.61%,8.6/10,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+103,Fix Microsoft Defender for Endpoint impaired communications,'+0.61%,8.6/10,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+104,Turn on Microsoft Defender for Endpoint sensor,'+0.61%,8.64/10,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+105,Disable Remote Registry Service on Windows,'+0.49%,6.77/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+106,"Ensure that TPM 2.0 is present, enabled, and activated",'+0.49%,6.95/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+107,Only invited users should be automatically admitted to Teams meetings,'+0.12%,1/2,To address,No,Yes,Apps,Microsoft Teams,11/9/2026
+108,Ensure the customer lockbox feature is enabled,'+0.06%,0/1,To address,No,Yes,Apps,Exchange Online,11/24/2026
+109,Restrict anonymous users from joining meetings,'+0.06%,0/1,To address,No,Yes,Apps,Microsoft Teams,11/9/2026
+110,Don't add allowed IP addresses in the connection filter policy ,'+0.06%,0/1,To address,No,Yes,Apps,Defender for Office,11/24/2026
+111,Extend M365 sensitivity labeling to assets in Microsoft Purview data map,'+0.06%,0/1,To address,No,No,Data,Microsoft Information Protection,11/24/2026
+112,Ensure that Auto-labeling data classification policies are set up and used,'+0.06%,0/1,To address,No,No,Data,Microsoft Information Protection,11/24/2026
+113,Sign out inactive users in SharePoint Online,'+0.06%,0/1,To address,No,Yes,Identity,SharePoint Online,11/26/2026
+114,Ensure modern authentication for SharePoint applications is required,'+0.06%,0/1,To address,No,Yes,Identity,SharePoint Online,11/26/2026
+115,Set a honeytoken account,'+0.06%,0/1,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+116,Configure VPN integration,'+0.06%,0/1,To address,No,Yes,Identity,Defender for Identity,11/26/2026
+117,Set automatic email forwarding rules to be system controlled,'+0.06%,0.02/1,To address,Yes,Yes,Apps,Defender for Office,11/24/2026
+118,Ensure 'Self service password reset enabled' is set to 'All','+0.06%,0.03/1,To address,No,Yes,Identity,Microsoft Entra ID,11/22/2026
+119,Enable Microsoft Defender Antivirus email scanning,'+0.55%,8.1/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+120,Ensure multifactor authentication is enabled for all users in administrative roles,'+0.61%,9.41/10,To address,No,Yes,Identity,Microsoft Entra ID,11/22/2026
+121,Turn on Microsoft Defender Firewall,'+0.61%,9.46/10,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+122,Enable 'Network Protection','+0.49%,7.5/8,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+123,Block file transfer over RDP,'+0.43%,6.56/7,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+124,Onboard devices to Microsoft Defender for Endpoint,'+0.55%,8.61/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+125,Enable Automatic Updates,'+0.31%,4.62/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+126,Turn on PUA protection in block mode,'+0.55%,8.78/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+127,Encrypt all BitLocker-supported drives,'+0.55%,8.78/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+128,Set 'Minimum password length' to '14 or more characters','+0.31%,4.81/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+129,Ensure devices are updated to Secure Boot 2023 certificates and boot manager,'+0.43%,6.82/7,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+130,SMB server security hardening against authentication relay attacks,'+0.49%,7.85/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+131,Turn on real-time protection,'+0.61%,9.86/10,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+132,Change service account to avoid cached password in windows registry,'+0.49%,7.89/8,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+133,Enable 'Microsoft network client: Digitally sign communications (always)','+0.31%,4.9/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+134,Secure Microsoft Defender Firewall domain profile,'+0.55%,8.91/9,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+135,Set 'Account lockout threshold' to 1-10 invalid login attempts,'+0.37%,5.91/6,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+136,Ensure BitLocker drive compatibility,'+0.49%,7.92/8,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+137,Enable 'Local Security Authority (LSA) protection' on Windows 11 22h2 and higher,'+0.49%,7.92/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+138,Disable SMBv1 client driver,'+0.49%,7.93/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+139,Change service executable path to a common protected location,'+0.49%,7.93/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+140,Enable Microsoft Defender Antivirus real-time behavior monitoring,'+0.31%,4.95/5,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+141,Fix Windows Defender Antivirus cloud service connectivity,'+0.49%,7.96/8,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+142,Reduce unnecessary inbound internet exposure on internet-facing devices,'+0.49%,7.96/8,To address,Yes,Yes,Device,Defender for Endpoint,11/26/2026
+143,Ensure that no sender domains are allowed for anti-spam policies,'+0.12%,1.96/2,To address,No,Yes,Apps,Defender for Office,11/24/2026
+144,Set Microsoft Defender SmartScreen app and file checking to block or warn,'+0.55%,8.96/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+145,Set Microsoft Defender SmartScreen Microsoft Edge site and download checking to block or warn,'+0.55%,8.96/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+146,Secure Microsoft Defender firewall private profile,'+0.55%,8.96/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+147,Secure Microsoft Defender Firewall public profile,'+0.55%,8.96/9,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+148,Set 'Account lockout duration' to 15 minutes or more,'+0.37%,5.97/6,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+149,Set 'Reset account lockout counter after' to 15 minutes or more,'+0.37%,5.97/6,To address,No,Yes,Device,Defender for Endpoint,11/26/2026
+150,Retain spam in quarantine for 30 days,'+0.06%,0.98/1,To address,No,Yes,Apps,Defender for Office,11/24/2026
+151,Set the email bulk complaint level (BCL) threshold to be 6 or lower,'+0.06%,0.98/1,To address,No,Yes,Apps,Defender for Office,11/24/2026
+152,Block users who reached the message limit,'+0.06%,0.98/1,To address,No,Yes,Apps,Defender for Office,11/24/2026
+153,Enable Microsoft Entra ID Identity Protection user risk policies,'+0.43%,6.98/7,To address,No,Yes,Identity,Microsoft Entra ID,11/22/2026
+154,Enable Conditional Access policies to block legacy authentication,'+0.49%,7.99/8,To address,No,Yes,Identity,Microsoft Entra ID,11/22/2026
+155,Enable Microsoft Entra ID Identity Protection sign-in risk policies,'+0.43%,6.99/7,To address,No,Yes,Identity,Microsoft Entra ID,11/22/2026
+156,Enable Microsoft Defender Antivirus scanning of downloaded files and attachments,'+0.61%,10/10,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+157,Turn on Microsoft Defender Antivirus,'+0.61%,10/10,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+158,Update Microsoft Defender for Endpoint core components,'+0.61%,10/10,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+159,Create Safe Links policies for email messages,'+0.55%,9/9,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+160,Update Microsoft Defender Antivirus definitions,'+0.55%,9/9,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+161,Resume BitLocker protection on all drives,'+0.55%,9/9,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+162,Remove unsafe permissions on sensitive Entra Connect accounts,'+0.55%,9/9,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+163,Locate accounts in built-in Operator Groups,'+0.49%,8/8,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+164,Turn on Safe Attachments in block mode,'+0.49%,8/8,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+165,Ensure that mailbox intelligence is enabled,'+0.49%,8/8,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+166,Ensure that intelligence for impersonation protection is enabled,'+0.49%,8/8,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+167,Move messages that are detected as impersonated users by mailbox intelligence,'+0.49%,8/8,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+168,Set the phishing email level threshold at 2 or higher,'+0.49%,8/8,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+169,Enable impersonated user protection,'+0.49%,8/8,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+170,Set 'Remote Desktop security level' to 'TLS','+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+171,Enable 'Safe DLL Search Mode','+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+172,Disable 'Insecure guest logons' in SMB,'+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+173,Disable SMBv1 server,'+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+174,Enable 'Require additional authentication at startup','+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+175,Restrict anonymous access to named pipes and Shares,'+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+176,Disable 'Store LAN Manager hash value on next password change','+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+177,Disable 'Always install with elevated privileges','+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+178,Disable 'Anonymous enumeration of SAM accounts','+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+179,Enable scanning of removable drives during a full scan,'+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+180,Enable EDR in block mode,'+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+181,Enable cloud-delivered protection,'+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+182,Disable the built-in Guest account,'+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+183,Require LDAP server signing to ensure integrity of directory traffic,'+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+184,Unsafe permissions on the DnsAdmins group,'+0.49%,8/8,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+185,Reversible passwords found in GPOs,'+0.49%,8/8,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+186,Remove discoverable passwords in Active Directory account attributes,'+0.49%,8/8,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+187,Remove unnecessary replication permissions for Entra Connect AD DS Connector Account,'+0.49%,8/8,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+188,Require authentication for Telnet management interface,'+0.49%,8/8,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+189,Enforce LDAP channel binding to protect authentication sessions from interception,'+0.43%,7/7,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+190,GPO assigns unprivileged identities to local groups with elevated privileges,'+0.43%,7/7,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+191, Identify service accounts in privileged groups,'+0.43%,7/7,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+192,Ensure service accounts are not assigned Domain Name Admin or Global Admin roles,'+0.43%,7/7,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+193,Ensure all External and Guest accounts are not granted privileged roles,'+0.43%,7/7,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+194,Ensure no privileged SaaS apps accounts exist outside of IDP control,'+0.43%,7/7,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+195,Set a valid password rotation interval for gMSA,'+0.37%,6/6,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+196,Create zero-hour auto purge policies for malware,'+0.37%,6/6,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+197,Quarantine messages that are detected from impersonated domains,'+0.37%,6/6,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+198,Quarantine messages that are detected from impersonated users,'+0.37%,6/6,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+199,Rotate old password for sMSA and set up valid rotation interval in the GPO,'+0.37%,6/6,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+200,Require authentication for VNC management interface,'+0.37%,6/6,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+201,Ensure internal phishing protection for Forms is enabled,'+0.37%,6/6,Completed,No,Yes,Apps,Microsoft Forms,11/26/2026
+202,Resolve unsecure domain configurations,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+203,"Turn on Microsoft Defender for Office 365 in SharePoint, OneDrive, and Microsoft Teams",'+0.31%,5/5,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+204,Turn on Safe Documents for Office Clients,'+0.31%,5/5,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+205,Ensure the Common Attachment Types Filter is enabled,'+0.31%,5/5,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+206,Ensure DLP policies are enabled,'+0.31%,5/5,Completed,No,Yes,Data,Microsoft Information Protection,11/24/2026
+207,Set action to take on high confidence spam detection,'+0.31%,5/5,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+208,Set action to take on phishing detection,'+0.31%,5/5,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+209,Set action to take on high confidence phishing detection,'+0.31%,5/5,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+210,Set action to take on spam detection,'+0.31%,5/5,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+211,Ensure that password hash sync is enabled for hybrid deployments,'+0.31%,5/5,Completed,No,Yes,Identity,Microsoft Entra ID,11/22/2026
+212,Ensure Safe Attachments policy is enabled,'+0.31%,5/5,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+213,Enable 'Domain member: Require strong (Windows 2000 or later) session key','+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+214,Enable 'Domain member: Digitally encrypt or sign secure channel data (always)','+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+215,Enable Set 'Domain member: Digitally encrypt secure channel data (when possible)','+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+216,Enable 'Domain member: Digitally sign secure channel data (when possible)','+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+217,Disable 'Network access: Let Everyone permissions apply to anonymous users','+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+218,Disable 'WDigest Authentication','+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+219,Disable 'Configure Offer Remote Assistance','+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+220,Enable 'Limit local account use of blank passwords to console logon only','+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+221,Block Flash activation in Office documents,'+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+222,Enable Explorer Data Execution Prevention (DEP),'+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+223,Disable sending unencrypted password to third-party SMB servers,'+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+224,Change password for accounts with leaked credentials,'+0.31%,5/5,Completed,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+225,Enable 'Microsoft Defender for Endpoint Plug-in for WSL','+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+226,Turn off custom kernel/commandline in Windows Subsystem for Linux,'+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+227,Accounts with non-default Primary Group ID,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+228,Prevent users to request a certificate valid for arbitrary users based on the certificate template (ESC1),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+229,Edit misconfigured certificate templates ACL (ESC4),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+230,Edit overly permissive Certificate Template with privileged EKU (Any purpose EKU or No EKU) (ESC2),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+231,Edit misconfigured enrollment agent certificate template (ESC3),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+232,Edit misconfigured certificate templates owner (ESC4),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+233,Remove access rights on suspicious accounts with the Admin SDHolder permission,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+234,Built-in Active Directory Guest account is enabled,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+235,Change password for krbtgt account,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+236,Stop clear text credentials exposure,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+237,Remove local admins on identity assets,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+238,Change Domain Controller computer account old password,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+239,GPO can be modified by unprivileged accounts,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+240,Remove stale service accounts,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+241,Modify unsecure Kerberos delegations to prevent impersonation,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+242,Remove non-admin accounts with DCSync permissions ,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+243,Reduce lateral movement path risk to sensitive entities,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+244,Disable Print spooler service on domain controllers,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+245,Remove unsecure SID history attributes from entities,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+246,Stop weak cipher usage,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+247,Change password for on-prem account with potentially leaked credentials,'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+248,Prevent Certificate Enrollment with arbitrary Application Policies (ESC15),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+249,Edit insecure certificate enrollment IIS endpoints (ESC8),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+250,Edit misconfigured Certificate Authority ACL (ESC7),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+251,Enforce encryption for RPC certificate enrollment interface (ESC11),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+252,Edit vulnerable Certificate Authority setting (ESC6),'+0.31%,5/5,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+253,Disable insecure administration protocol – Telnet,'+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+254,Remove insecure administration protocols SNMP V1 and SNMP V2,'+0.31%,5/5,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+255,Ensure third party integrated applications are not allowed,'+0.31%,5/5,Completed,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+256,Ensure Sign-in frequency is enabled and browser sessions are not persistent for Administrative users,'+0.31%,5/5,Completed,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+257,Ensure the admin consent workflow is enabled,'+0.31%,5/5,Completed,No,Yes,Identity,Microsoft Entra ID,11/26/2026
+258,Ensure Microsoft Defender for Cloud Apps is enabled and configured,'+0.31%,5/5,Completed,No,Yes,Apps,Microsoft Defender for Cloud Apps,11/26/2026
+259,Ensure that SPF records are published for all Exchange Domains,'+0.31%,5/5,Completed,No,Yes,Apps,Exchange Online,11/26/2026
+260,Install Defender for Identity Sensor on all Domain Controllers,'+0.24%,4/4,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+261,Install Defender for Identity Sensor on ADCS servers ,'+0.24%,4/4,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+262,Install Defender for Identity Sensor on Entra Connect servers,'+0.24%,4/4,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+263,Install Defender for Identity Sensor on ADFS servers ,'+0.24%,4/4,Completed,No,Yes,Identity,Defender for Identity,11/26/2026
+264,Ensure user consent to apps accessing company data on their behalf is not allowed,'+0.24%,4/4,Completed,No,Yes,Identity,Microsoft Entra ID,11/22/2026
+265,Create zero-hour auto purge policies for phishing messages,'+0.18%,3/3,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+266,Set action to take on bulk spam detection,'+0.18%,3/3,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+267,Enable the domain impersonation safety tip,'+0.18%,3/3,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+268,Enable the user impersonation safety tip,'+0.18%,3/3,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+269,Enable the user impersonation unusual characters safety tip ,'+0.18%,3/3,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+270,Ensure modern authentication for Exchange Online is enabled,'+0.18%,3/3,Completed,No,Yes,Identity,Exchange Online,11/24/2026
+271,Ensure Microsoft 365 audit log search is Enabled,'+0.18%,3/3,Completed,No,Yes,Apps,Microsoft Information Protection,11/24/2026
+272,Ensure that an anti-phishing policy has been created,'+0.18%,3/3,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+273,Ensure that SharePoint guest users cannot share items they don't own,'+0.18%,3/3,Completed,No,Yes,Identity,SharePoint Online,11/26/2026
+274,Ensure DLP policies are enabled for Microsoft Teams,'+0.18%,3/3,Completed,No,Yes,Apps,Microsoft Information Protection,11/26/2026
+275,Disable 'Domain member: Disable machine account password changes','+0.12%,2/2,Completed,No,Yes,Device,Defender for Endpoint,11/26/2026
+276,Create zero-hour auto purge policies for spam messages,'+0.06%,1/1,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+277,Restrict dial-in users from bypassing a meeting lobby ,'+0.06%,1/1,Completed,No,Yes,Apps,Microsoft Teams,11/9/2026
+278,Limit external participants from having control in a Teams meeting,'+0.06%,1/1,Completed,No,Yes,Apps,Microsoft Teams,11/9/2026
+279,Restrict anonymous users from starting Teams meetings,'+0.06%,1/1,Completed,No,Yes,Apps,Microsoft Teams,11/9/2026
+280,Set maximum number of external recipients that a user can email per hour,'+0.06%,1/1,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+281,Set maximum number of internal recipients that a user can send to within an hour,'+0.06%,1/1,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+282,Set a daily message limit,'+0.06%,1/1,Completed,No,Yes,Apps,Defender for Office,11/24/2026
+283,Designate more than one global admin,'+0.06%,1/1,Completed,No,Yes,Identity,Microsoft Entra ID,11/22/2026
+284,Use least privileged administrative roles,'+0.06%,1/1,Completed,No,Yes,Identity,Microsoft Entra ID,11/22/2026
